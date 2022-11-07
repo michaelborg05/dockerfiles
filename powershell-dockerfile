@@ -91,9 +91,10 @@ RUN chmod a+x,o-w ${PS_INSTALL_FOLDER}/pwsh \
 
 #Need to always be running apt-get update prior to an install as it does a cleanup of apt repositories and tmp files
 RUN apt-get update && apt-get install -y git
-RUN mkdir /script && cd /script && git clone https://github.com/michaelborg05/pwshscripts.git
+RUN git clone https://github.com/michaelborg05/pwshscripts.git
+
 #Set working directory
-WORKDIR /script
+WORKDIR /pwshscripts
 
 # Use PowerShell as the default shell
 # Use array to avoid Docker prepending /bin/sh -c
